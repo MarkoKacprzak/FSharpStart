@@ -53,3 +53,18 @@ let files = System.IO.Directory.EnumerateDirectories(@"C:\mygit\FSharpStart")
                     System.IO.Directory.Move(String.Format("C:\mygit\FSharpStart\\{0}",folder), String.Format("C:\mygit\FSharpStart\m{0}",folder) )
                 printf "Nie pasuje")
 
+open System
+let ToMorse (s: string) =
+  let charMorse c =
+     match Char.ToUpper(c) with
+     | 'A' -> ".- "
+     | 'B' -> "-... "
+     | 'C' -> "-.-. "
+     // etc/
+     | _ -> ""
+  s 
+  |> Seq.map charMorse
+  |> Seq.reduce (+)
+ 
+let asn = ToMorse "CBA"
+asn
