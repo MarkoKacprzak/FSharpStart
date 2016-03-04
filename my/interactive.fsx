@@ -22,5 +22,34 @@ let lastDay2 year =
     
 let a=lastDay2 2011
 
-let files = System.IO.Directory.EnumerateFiles(@"c:\")
+
+open System
+let is_numeric a = fst (System.Double.TryParse(a))
+  
+let InitCap str = 
+    if String.IsNullOrEmpty str then
+        str.[0].ToString().ToUpperInvariant()
+    else
+        str.[0].ToString().ToUpperInvariant() 
+
+let CheckNr er =
+    if is_numeric er then
+        true
+    else
+        false
+let ss=InitCap "12asdas"
+let b=CheckNr ss
+if b then
+    printf "ok"
+printf "nook"
+
+let files = System.IO.Directory.EnumerateDirectories(@"C:\mygit\FSharpStart")
             |> Array.ofSeq
+            |> Array.map( fun s -> s.Replace("C:\mygit\FSharpStart\\",""))
+            |> Array.iter( fun folder -> 
+                let ss=InitCap folder
+                let b=CheckNr ss
+                if b then 
+                    System.IO.Directory.Move(String.Format("C:\mygit\FSharpStart\\{0}",folder), String.Format("C:\mygit\FSharpStart\m{0}",folder) )
+                printf "Nie pasuje")
+
