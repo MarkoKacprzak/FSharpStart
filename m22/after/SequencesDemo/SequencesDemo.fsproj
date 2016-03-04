@@ -5,13 +5,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>80892337-9d57-4028-8548-5ff965e0e762</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Module3</RootNamespace>
-    <AssemblyName>Module3</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <ProjectGuid>ede74ebd-0473-49a1-9e43-ec8cb5ab6842</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SequencesDemo</RootNamespace>
+    <AssemblyName>SequencesDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
-    <Name>Module3</Name>
+    <Name>SequencesDemo</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +21,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\Module3.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\SequencesDemo.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\Module3.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\SequencesDemo.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -42,7 +42,14 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module3.fs" />
+    <Compile Include="CreatingSequences.fs" />
+    <Compile Include="SeqUnfold.fs" />
+    <Compile Include="CollectionsAsSequences.fs" />
+    <Compile Include="SequenceExpressions.fs" />
+    <Compile Include="AccessingSequenceElements.fs" />
+    <Compile Include="SearchingWithinSequences.fs" />
+    <Compile Include="GroupingSequences.fs" />
+    <Compile Include="SeqPairwiseWindowedCollect.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
