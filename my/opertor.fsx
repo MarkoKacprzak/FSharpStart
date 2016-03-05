@@ -48,6 +48,20 @@ let someint s : int32 =
    ret
      
 printfn "adas %d" (someint 2)  
-    
- 
-   
+
+//lambda function
+let applyFunction ( f: int -> int -> int) x y = f x y
+let mul x y = x * y
+let res = applyFunction mul 5 7
+printfn "%d" res
+
+// function composing - 
+// pipeline of function
+let function1 x = x + 1
+let function2 x = x * 5
+
+let f = function1 >> function2
+let ress = f 10
+printfn "%d" ress
+
+
