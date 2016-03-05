@@ -83,3 +83,94 @@ let char1=char first
 let isNumer=Char.IsDigit(char1)
 printfn "First from string %s is number: %b" stringwq isNumer
 
+// ITER
+
+// Signature:
+// String.iter : (char -> unit) -> string -> unit
+// Usage:
+// String.iter action str
+// action char -> unit - Funkcja stosowane do każdego znaku ciągu.
+// str - ciąg wejsciowy
+open System
+let testLetter d=
+    if (Char.IsDigit(d)) then
+      printfn "%c in string is digit" d
+String.iter testLetter "as2da1d"
+
+// ITERI
+
+// Signature:
+// String.iteri : (int -> char -> unit) -> string -> unit
+// Usage:
+// String.iteri action str
+// action int -> char -> unit - Funkcja stosuje się do każdego znaku i indeks ciągu.
+// str - ciąg wejsciowy
+let enumerateCharacters inputString = 
+    String.iteri (fun i c -> printfn "%d %c" i c) inputString
+enumerateCharacters "TIME"
+enumerateCharacters "SPACE"
+
+// LENGTH
+
+// Signature:
+// String.length : string -> int
+// Usage:
+// String.length str
+// str - ciąg wejściowy
+String.length "asdaD"
+
+// MAP
+
+// Signature:
+// String.map : (char -> char) -> string -> string
+// Usage:
+// String.map mapping str
+// mapping char -> char - Funkcja stosuje do ciągu znaków.
+// str - ciąg wejściowy
+
+let rot13 c =
+    let upperZero = int 'A' - 1
+    let lowerZero = int 'a' - 1
+    if System.Char.IsLetter(c) then
+        if System.Char.IsUpper(c) then
+            char (((int c + 13 - upperZero) % 26) + upperZero)
+        else
+            char (((int c + 13 - lowerZero) % 26) + lowerZero)
+    else c
+let test = "The quick sly fox jumped over the lazy brown dog."
+let codec= "Gur dhvpx fyl sbk whzcrq bire gur ynml oebja qbt."
+printfn "%s" test
+printfn "%s" <| (String.map rot13 test)
+printfn "%s" <| (String.map rot13 codec)
+
+// MAPI
+
+// Signature:
+// String.mapi : (int -> char -> char) -> string -> string
+// Usage:
+// String.mapi mapping str
+// mapping int -> char -> char - Funkcja stosuje się do każdego znaku i indeks ciągu.
+// str - Ciąg wejściowy
+let replaceNth n newChar inputString =
+    let result = String.mapi (fun i c -> if i = n then newChar else c) inputString
+    printfn "%s" result
+    result
+printfn "MASK"
+"MASK" |> replaceNth 0 'B'
+|> replaceNth 3 'H'
+|> replaceNth 2 'T'
+|> replaceNth 1 'O'
+|> replaceNth 0 'M'
+|> replaceNth 1 'A'
+|> replaceNth 2 'S'
+|> replaceNth 3 'K'
+
+// REPLICATE
+
+// Signature:
+// String.replicate : int -> string -> string
+// Usage:
+// String.replicate count str
+// count int - Liczba kopii ciąg wejściowy zostanie skopiowana.
+// str - Ciąg wejściowy
+printfn "%s" <| String.replicate 10 "XO"
