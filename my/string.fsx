@@ -174,3 +174,17 @@ printfn "MASK"
 // count int - Liczba kopii ciąg wejściowy zostanie skopiowana.
 // str - Ciąg wejściowy
 printfn "%s" <| String.replicate 10 "XO"
+
+// touple: coma separated:
+
+let display tuple1 =
+   match tuple1 with
+   | (a, b, c) -> printfn "Detail Info: %A %A %A" a b c
+
+display ("Zara Ali", "Hyderabad", 10 )
+display [("Zara Ali", "Hyderabad", 10 )].[0]
+
+// fst and snd - first and second from tuple:
+printfn "First member: %A" (fst(23, 30))
+printfn "Second member: %A" (snd(23, 30))
+
